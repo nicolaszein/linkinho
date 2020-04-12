@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table(name="links")
+@Table(name = "links")
 data class Link(
     val longUrl: String,
     val title: String

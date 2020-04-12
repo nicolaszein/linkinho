@@ -3,11 +3,11 @@ package dev.nicolaszein.linkinho.infra
 import java.math.BigInteger
 
 
-class Base62(){
+class Base62() {
     private val charSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     fun encode(value: BigInteger): String {
-        if(value == 0.toBigInteger()) {
+        if (value == 0.toBigInteger()) {
             return charSet[0].toString()
         }
 

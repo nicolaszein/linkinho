@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional
 @SpringBootTest
 @Transactional
 @RunWith(SpringRunner::class)
-class LinksRepositoryTest{
+class LinksRepositoryTest {
     @Autowired
     private lateinit var repository: LinksRepository
 
