@@ -8,13 +8,12 @@ import javax.persistence.*
 @Entity
 @Table(name = "links")
 data class Link(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int? = null,
     val longUrl: String,
     val title: String
 ) {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int? = null
-
     @CreationTimestamp
     val createdAt: LocalDateTime? = null
 
