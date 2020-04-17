@@ -1,8 +1,9 @@
 package dev.nicolaszein.linkinho.infra
 
+import org.springframework.stereotype.Service
 import java.math.BigInteger
 
-
+@Service
 class Base62() {
     private val charSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
