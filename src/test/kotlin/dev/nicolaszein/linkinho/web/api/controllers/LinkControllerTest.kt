@@ -1,4 +1,4 @@
-package dev.nicolaszein.linkinho.web.controllers
+package dev.nicolaszein.linkinho.web.api.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.Test
