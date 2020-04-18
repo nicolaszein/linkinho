@@ -1,4 +1,4 @@
-package dev.nicolaszein.linkinho.web.controllers.validators
+package dev.nicolaszein.linkinho.web.api.controllers.validators
 
 import dev.nicolaszein.linkinho.application.commands.CreateLinkCommand
 import org.hibernate.validator.constraints.URL

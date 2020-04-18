@@ -1,10 +1,10 @@
-package dev.nicolaszein.linkinho.web.controllers
+package dev.nicolaszein.linkinho.web.api.controllers
 
 import dev.nicolaszein.linkinho.application.commands.CreateLinkCommand
 import dev.nicolaszein.linkinho.application.services.LinkService
-import dev.nicolaszein.linkinho.web.controllers.responses.LinkResponse
-import dev.nicolaszein.linkinho.web.controllers.responses.toResponse
-import dev.nicolaszein.linkinho.web.controllers.validators.CreateLink
+import dev.nicolaszein.linkinho.web.api.controllers.responses.LinkResponse
+import dev.nicolaszein.linkinho.web.api.controllers.responses.toResponse
+import dev.nicolaszein.linkinho.web.api.controllers.validators.CreateLink
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping

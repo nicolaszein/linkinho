@@ -1,4 +1,4 @@
-package dev.nicolaszein.linkinho.web.configuration
+package dev.nicolaszein.linkinho.web.api.configuration
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

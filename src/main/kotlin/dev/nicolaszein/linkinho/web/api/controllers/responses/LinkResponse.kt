@@ -1,4 +1,4 @@
-package dev.nicolaszein.linkinho.web.controllers.responses
+package dev.nicolaszein.linkinho.web.api.controllers.responses
 
 import dev.nicolaszein.linkinho.domain.entities.Link
 import java.time.LocalDateTime
