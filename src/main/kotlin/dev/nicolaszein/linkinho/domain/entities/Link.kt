@@ -14,6 +14,9 @@ data class Link(
     val longUrl: String,
     val title: String
 ) {
+    @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.LAZY, mappedBy = "link")
+    var clicks: MutableList<Click> = mutableListOf()
+
     @CreationTimestamp
     val createdAt: LocalDateTime? = null
 
@@ -21,4 +24,8 @@ data class Link(
     val updatedAt: LocalDateTime? = null
 
     var tag: String? = null
+
+    fun addClick(userAgent: String, ip: String) {
+        this.clicks.add(Click(link = this, userAgent = userAgent, ip = ip))
+    }
 }
