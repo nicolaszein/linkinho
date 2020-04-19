@@ -1,5 +1,6 @@
 package dev.nicolaszein.linkinho.web.api.configuration
 
+import dev.nicolaszein.linkinho.web.api.exceptions.ResourceNotFound
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException
@@ -50,6 +51,18 @@ class ExceptionHandler {
         )
 
         return ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(ResourceNotFound::class)
+    fun resourceNotFound(
+        ex: ResourceNotFound
+    ): ResponseEntity<ExceptionResponse> {
+        val exceptionResponse = ExceptionResponse(
+            code = "RESOURCE_NOT_FOUND",
+            message = ex.message
+        )
+
+        return ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND)
     }
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
