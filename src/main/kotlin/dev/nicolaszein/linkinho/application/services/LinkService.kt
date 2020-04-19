@@ -1,5 +1,6 @@
 package dev.nicolaszein.linkinho.application.services
 
+import dev.nicolaszein.linkinho.application.commands.AddLinkClickCommand
 import dev.nicolaszein.linkinho.application.commands.CreateLinkCommand
 import dev.nicolaszein.linkinho.domain.entities.Link
 import dev.nicolaszein.linkinho.domain.repositories.LinksRepository
@@ -15,6 +16,13 @@ class LinkService(
         val link = linksRepository.save(command.toDomain())
 
         link.tag = base62.encode(link.id?.toBigInteger()!!)
+
+        return linksRepository.save(link)
+    }
+
+    fun addLinkClick(command: AddLinkClickCommand): Link {
+        val link = command.link
+        link.addClick(userAgent = command.userAgent, ip = command.ip)
 
         return linksRepository.save(link)
     }
