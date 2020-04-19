@@ -1,8 +1,6 @@
 package dev.nicolaszein.linkinho.web.controllers
 
-import dev.nicolaszein.linkinho.domain.entities.Link
-import dev.nicolaszein.linkinho.domain.repositories.LinksRepository
-import dev.nicolaszein.linkinho.infra.Base62
+import dev.nicolaszein.linkinho.helpers.LinkFactory
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,23 +20,17 @@ class LinkRedirectControllerTest {
     lateinit var mockMvc: MockMvc
 
     @Autowired
-    lateinit var linksRepository: LinksRepository
-
-    @Autowired
-    lateinit var base62: Base62
+    lateinit var linkFactory: LinkFactory
 
     @Test
     fun `redirect to longUrl if link exists`() {
-        val link = Link(longUrl = "https://youtube.com", title = "Youtube URL")
-        linksRepository.save(link)
-        link.tag = base62.encode(link?.id?.toBigInteger()!!)
-        linksRepository.save(link)
+        val link = linkFactory.create()
 
         mockMvc.perform(get("/${link.tag}")).andExpect(redirectedUrl(link.longUrl))
     }
 
     @Test
     fun `returns 404 if link does not exist`() {
-        mockMvc.perform(get("/invalid-tag")).andExpect(status().isNotFound())
+        mockMvc.perform(get("/invalid-tag")).andExpect(status().isNotFound)
     }
 }
